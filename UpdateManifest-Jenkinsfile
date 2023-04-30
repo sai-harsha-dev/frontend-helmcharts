@@ -18,7 +18,7 @@ pipeline{
                 sh 'git add .'
                 sh 'git branch'
                 sh 'git commit -m "updated image to ${IMAGE}"'
-                sh 'git push origin master'
+                sh 'git push origin main'
             }
         }
     }
