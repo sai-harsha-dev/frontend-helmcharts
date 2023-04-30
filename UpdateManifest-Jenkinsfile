@@ -15,6 +15,7 @@ pipeline{
 
         stage ("Git commit and push"){
             steps{
+                sh 'git add .'
                 sh 'git commit -m "updated image to ${IMAGE}"'
                 sh 'git push origin master'
             }
