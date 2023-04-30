@@ -1,0 +1,23 @@
+pipeline{
+    parameters {
+        string defaultValue: 'localhost:8081/frontend', name: 'IMAGE'
+    }
+
+    agent any
+
+    stages{
+
+        stage ("Add Image URI){
+            steps{
+                sed -i 's/image:*/image: vnsharsha7999\/frontend:v1/' values.yaml
+            }
+        }
+
+        stage ("Git commit and push"){
+            steps{
+                sh 'git commit -m "updated image to ${IMAGE}"'
+                sh push origin master
+            }
+        }
+    }
+}
