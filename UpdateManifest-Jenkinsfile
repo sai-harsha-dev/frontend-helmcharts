@@ -6,7 +6,14 @@ pipeline{
     agent any
 
     stages{
-
+     
+        stage("Delete remote master branch"){
+            steps{
+                sh 'git branch -m main'
+                sh 'git push origin main'
+                sh 'git push origin --delete master'}
+                }
+            
         stage ("Add Image URI"){
             steps{
                 sh 'sed -i \'s/image:*/image: vnsharsha7999\\/frontend:v1/\' frontend-helm-chart/values.yaml'
@@ -16,7 +23,6 @@ pipeline{
         stage ("Git commit and push"){
             steps{
                 sh 'git add .'
-                sh 'git branch'
                 sh 'git commit -m "updated image to ${IMAGE}"'
                 sh 'git push origin master'
             }
