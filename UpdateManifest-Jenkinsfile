@@ -7,7 +7,7 @@ pipeline{
 
     stages{
 
-        stage ("Add Image URI){
+        stage ("Add Image URI"){
             steps{
                 sed -i 's/image:*/image: vnsharsha7999\/frontend:v1/' values.yaml
             }
