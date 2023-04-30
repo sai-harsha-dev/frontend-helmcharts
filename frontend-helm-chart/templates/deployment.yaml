@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.component}}-deployment
+  labels:
+    component: {{ .Values.component}}-deployment
+spec:
+  replicas: {{ .Values.minReplicas}}
+  selector:
+    matchLabels:
+      pods: {{ .Values.component}}-pods
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0 
+      maxSurge: 2
+  template:
+    metadata:
+      labels:
+        pods: {{ .Values.component}}-pods
+    spec:
+      containers:
+      - name: {{ .Values.component}}-pods
+        image: {{ .Values.image}}
+        ports:
+        - containerPort: {{ .Values.port}}
+        resources:
+          requests:
+            cpu: {{ .Values.MinCpu}}
+          limits:
+            cpu: {{ .Values.MaxCpu}}
+          

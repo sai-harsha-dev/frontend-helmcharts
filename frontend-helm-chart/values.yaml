@@ -1,0 +1,11 @@
+component: frontend
+
+image: vnsharsha7999/frontend:v1
+port: 80
+
+MinCpu: 200m
+MaxCpu: 500m
+maxUtilization: 90
+
+minReplicas: 1
+maxReplicas: 10
