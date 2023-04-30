@@ -9,8 +9,9 @@ pipeline{
      
         stage("Delete remote master branch"){
             steps{
-                sh 'git branch -r'
-                sh 'git branch -a'}
+                sh 'git checkout -b main'
+                sh 'git push origin main'
+                }
                 }
             
         stage ("Add Image URI"){
@@ -23,7 +24,7 @@ pipeline{
             steps{
                 sh 'git add .'
                 sh 'git commit -m "updated image to ${IMAGE}"'
-                sh 'git push origin master'
+                sh 'git push origin main'
             }
         }
     }
