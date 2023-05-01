@@ -6,13 +6,6 @@ pipeline{
     agent any
 
     stages{
-     
-        stage("Clone"){
-            steps{
-                sh 'git checkout main'
-                sh 'git branch -D master'
-                }
-                }
             
         stage ("Add Image URI"){
             steps{
