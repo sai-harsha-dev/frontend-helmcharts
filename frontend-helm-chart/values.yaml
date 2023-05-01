@@ -1,6 +1,7 @@
 component: frontend
 
-${IMAGE}
+image: vnsharsha
+
 port: 80
 
 MinCpu: 200m
