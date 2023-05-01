@@ -9,7 +9,7 @@ pipeline{
      
         stage("Clone"){
             steps{
-                sh 'git clone '
+                sh 'git clone https://github.com/sai-harsha-dev/frontend-helmcharts.git'
                 }
                 }
             
@@ -21,9 +21,10 @@ pipeline{
 
         stage ("Git commit and push"){
             steps{
-                sh 'git add .'
-                sh 'git commit -m "updated image to ${IMAGE}"'
-                sh 'git push origin main'
+                withCredentials([gitUsernamePassword(credentialsId: 'jenkins-github-token', gitToolName: 'Default')]) {
+                    sh 'git add .'
+                    sh 'git commit -m "updated image to ${IMAGE}"'
+                    sh 'git push origin main' }
             }
         }
     }
