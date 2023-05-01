@@ -9,7 +9,7 @@ pipeline{
      
         stage("Clone"){
             steps{
-                sh 'git branch main'
+                sh 'git checkout main'
                 sh 'git branch -d master'
                 }
                 }
