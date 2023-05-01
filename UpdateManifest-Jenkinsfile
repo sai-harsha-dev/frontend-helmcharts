@@ -9,6 +9,7 @@ pipeline{
             
         stage ("Add Image URI"){
             steps{
+                sh 'git checkout -b edit'
                 sh 'sed -i \'s/image:*/image: vnsharsha7999\\/frontend:v1/\' frontend-helm-chart/values.yaml'
             }
         }
@@ -19,7 +20,7 @@ pipeline{
                     sh 'git branch'
                     sh 'git add frontend-helm-chart/values.yaml'
                     sh 'git commit -m "updated image to ${IMAGE}"'
-                    sh 'git remote -v'
+                    sh 'git merge main'
                     sh 'git log'
                     sh 'git push origin main' }
             }
