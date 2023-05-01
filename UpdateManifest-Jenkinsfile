@@ -9,7 +9,6 @@ pipeline{
             
         stage ("Add Image URI"){
             steps{
-                sh 'git branch'
                 sh 'sed -i \'s/image:*/image: vnsharsha7999\\/frontend:v1/\' frontend-helm-chart/values.yaml'
             }
         }
