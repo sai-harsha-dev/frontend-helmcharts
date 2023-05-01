@@ -18,7 +18,7 @@ pipeline{
                 withCredentials([gitUsernamePassword(credentialsId: 'jenkins-github-token', gitToolName: 'Default')]) {
                     sh 'git add frontend-helm-chart/values.yaml'
                     sh 'git commit -m "updated image to ${IMAGE}"'
-                    sh 'git push origin main' }
+                    sh 'git push remote main' }
             }
         }
     }
