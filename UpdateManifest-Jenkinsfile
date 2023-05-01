@@ -20,7 +20,7 @@ pipeline{
                     sh 'git branch'
                     sh 'git add frontend-helm-chart/values.yaml'
                     sh 'git commit -m "updated image to ${IMAGE}"'
-                    sh 'git merge main'
+                    sh 'git merge origin/main'
                     sh 'git log'
                     sh 'git push origin main' }
             }
