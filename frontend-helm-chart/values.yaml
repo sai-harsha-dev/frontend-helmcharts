@@ -1,6 +1,6 @@
 component: frontend
 
-image: vnsharsha7999/frontend:v1 vnsharsha7999/frontend:v1
+image: vnsharsha7999/frontend:v1 
 port: 80
 
 MinCpu: 200m
