@@ -11,7 +11,7 @@ pipeline{
             steps{
                 sh 'git show-ref'
                 sh 'git checkout -b edit'
-                sh 'sed -i \'s/image:*/image: vnsharsha7999\\/frontend:v1/\' frontend-helm-chart/values.yaml'
+                sh 'sed -i \'s/^image:*$/image: vnsharsha7999\\/frontend:v1/\' frontend-helm-chart/values.yaml'
             }
         }
 
